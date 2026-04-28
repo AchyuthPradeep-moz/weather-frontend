@@ -45,7 +45,7 @@ function isValidPassword(password) {
 async function doLogin(email, password) {
   const r = await fetch('https://posted-fame-stinking.ngrok-free.dev/api/auth/login', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true'},
     body: JSON.stringify({ email, password }),
   });
   const data = await r.json();
@@ -65,7 +65,7 @@ async function doLogin(email, password) {
 async function doSignup(email, username, password) {
   const r    = await fetch('https://posted-fame-stinking.ngrok-free.dev/api/auth/signup', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json','ngrok-skip-browser-warning': 'true'},
     body: JSON.stringify({ email, username, password }),
   });
   const data = await r.json();
