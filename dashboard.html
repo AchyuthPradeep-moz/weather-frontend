@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — WeatherApp</title>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <nav>
+    <span class="brand">☁️ SkyWatcher</span>
+    <button class="nav-logout" onclick="logout()">Logout</button>
+  </nav>
+
+  <div class="dashboard">
+    <p id="greetMsg" style="margin-bottom:1.25rem;font-size:1rem;color:#1a56db;font-weight:600;"></p>
+    <div class="tabs">
+      <button class="tab active" data-tab="weather" onclick="showTab('weather')">
+        🔍 Weather
+      </button>
+      <button class="tab" data-tab="history" onclick="showTab('history')">
+        📋 My History
+      </button>
+    </div>
+
+    <div id="weatherPage" class="page active">
+      <div class="search-row">
+        <input id="cityInput" type="text" placeholder="Search for a city..." autocomplete="off">
+        <button class="btn btn-primary" onclick="searchWeather()">Search</button>
+      </div>
+      <div id="weatherError" class="msg-error"></div>
+      <div id="weatherResult"></div>
+    </div>
+    <div id="historyPage" class="page">
+      <div class="history-header">My Saved Weather</div>
+      <div id="historyList"></div>
+    </div>
+
+  </div>
+
+  <script>
+    window.addEventListener('pageshow', () => {
+      if (!sessionStorage.getItem('token')) {
+        window.location.replace('/login');
+      }
+    });
+  </script>
+
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

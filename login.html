@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — WeatherApp</title>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <nav>
+    <span class="brand">☁️ SkyWatcher</span>
+  </nav>
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+
+      <h1>Welcome</h1>
+      <p class="subtitle">Sign in to your account</p>
+
+      <div id="errorMsg" class="msg-error"></div>
+
+      <div class="field">
+        <label for="emailInput">Email</label>
+        <input id="emailInput" type="email" placeholder="Enter your email id" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="passwordInput">Password</label>
+        <input id="passwordInput" type="password" placeholder="••••••••" autocomplete="off">
+      </div>
+
+      <button id="submitBtn" class="btn btn-primary" onclick="handleSubmit()">
+        Sign In
+      </button>
+
+      <p class="auth-footer">
+        Don't have an account? <a href="/signup">Create one</a>
+      </p>
+
+    </div>
+  </div>
+
+  <script>
+    
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('emailInput').value = '';
+      document.getElementById('passwordInput').value = '';
+    });
+    window.addEventListener('pageshow', (e) => {
+      document.getElementById('emailInput').value = '';
+      document.getElementById('passwordInput').value = '';
+    });
+  </script>
+
+  <script src="/static/js/auth.js"></script>
+</body>
+</html>

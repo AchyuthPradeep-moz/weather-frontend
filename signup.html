@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — WeatherApp</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <nav>
+    <span class="brand">☁️ SkyWatcher</span></span>
+  </nav>
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+
+      <h1>Create account</h1>
+      <p class="subtitle">Sign up with us to track weather</p>
+
+      <div id="errorMsg" class="msg-error"></div>
+
+      <div class="field">
+        <label for="usernameInput">Username</label>
+        <input id="usernameInput" type="text" placeholder="Enter username" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="emailInput">Email</label>
+        <input id="emailInput" type="email" placeholder="Enter email id" autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="passwordInput">Password</label>
+        <input id="passwordInput" type="password" placeholder="Min 8 chars, 1 number, 1 special char" autocomplete="new-password">
+      </div>
+
+      <div class="field">
+        <label for="confirmPasswordInput">Confirm Password</label>
+        <input id="confirmPasswordInput" type="password" placeholder="Re-enter your password" autocomplete="new-password">
+      </div>
+
+      <button id="submitBtn" class="btn btn-primary" onclick="handleSubmit()">
+        Create Account
+      </button>
+
+      <p class="auth-footer">
+        Already have an account? <a href="/login">Sign in</a>
+      </p>
+
+    </div>
+  </div>
+
+  <script src="/static/js/auth.js"></script>
+</body>
+</html>
