@@ -1,4 +1,3 @@
-
 if (sessionStorage.getItem('token')) {
   window.location.href = '/dashboard';
 }
@@ -44,7 +43,7 @@ function isValidPassword(password) {
 
 
 async function doLogin(email, password) {
-  const r = await fetch('/api/auth/login', {
+  const r = await fetch('https://posted-fame-stinking.ngrok-free.dev/api/auth/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password }),
@@ -64,7 +63,7 @@ async function doLogin(email, password) {
 
 
 async function doSignup(email, username, password) {
-  const r    = await fetch('/api/auth/signup', {
+  const r    = await fetch('https://posted-fame-stinking.ngrok-free.dev/api/auth/signup', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, username, password }),
@@ -155,4 +154,3 @@ async function handleSubmit() {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') handleSubmit();
 });
-

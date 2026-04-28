@@ -1,4 +1,3 @@
-
 const token = sessionStorage.getItem('token');
 const username = sessionStorage.getItem('username');
 
@@ -58,7 +57,7 @@ async function searchWeather() {
   loadingCard.textContent = `Fetching weather for ${city}...`;
   resultEl.prepend(loadingCard);
 
-  const r = await fetch(`/api/weather/search?city=${encodeURIComponent(city)}`, {
+  const r = await fetch(`https://posted-fame-stinking.ngrok-free.dev/api/weather/search?city=${encodeURIComponent(city)}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
 
@@ -124,7 +123,7 @@ async function saveWeather(city, cardId) {
   btn.disabled = true;
   btn.textContent = 'Saving...';
 
-  const r = await fetch(`/api/weather/save?city=${encodeURIComponent(city)}`, {
+  const r = await fetch(`https://posted-fame-stinking.ngrok-free.dev/api/weather/save?city=${encodeURIComponent(city)}`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -149,7 +148,7 @@ async function loadHistory() {
   const listEl = document.getElementById('historyList');
   listEl.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--muted)">Loading...</div>';
 
-  const r = await fetch('/api/weather/history', {
+  const r = await fetch('https://posted-fame-stinking.ngrok-free.dev/api/weather/history', {
     headers: { Authorization: `Bearer ${token}` },
   });
 
@@ -190,7 +189,7 @@ async function loadHistory() {
 
 
 async function deleteLog(id) {
-  const r = await fetch(`/api/weather/history/${id}`, {
+  const r = await fetch(`https://posted-fame-stinking.ngrok-free.dev/api/weather/history/${id}`, {
     method: 'DELETE',
     headers: { Authorization: `Bearer ${token}` },
   });
